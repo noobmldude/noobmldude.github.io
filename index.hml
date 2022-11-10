@@ -4,8 +4,16 @@
 </head>
 
 <body>
-Hello World! 🎉
+<h1>Hello World! 🎉</h1>
+<h4>I'm Building an equal world for everyone! </h4>
 
+<p>To know more: just reach out to me:
+<ul>
+<li>Twitter: NoobMLDude</li>
+<li>Mastodon: NoobMLDude</li>
+<li>Gmail: noobmldude</li>
+</ul>
+</p>
 
 </body>
 </html>
