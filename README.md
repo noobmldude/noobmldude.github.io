@@ -7,6 +7,5 @@
 ---
 To know more: just reach out to me:
 
-- Twitter: NoobMLDude
-- Mastodon: NoobMLDude
-- Gmail: noobmldude
+- 🐦 Twitter : [NoobMLDude](https://twitter.com/noobmldude)
+- 🐘 Mastodon : [NoobMLDude](https://noobmldude@mstdn.social/@NoobMLDude)
