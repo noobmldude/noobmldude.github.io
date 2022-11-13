@@ -1,9 +1,8 @@
 
 
-## Hello World! 🎉
+## Hello World! 🎉 I'm Noob 👋.
 
-### I'm Noob ML Dude
-# I'm Building an equal world for everyone!
+# I'm Building an equal world for everyone! 🌍 🤝 ☮️
 
 ---
 To know more: just reach out to me:
