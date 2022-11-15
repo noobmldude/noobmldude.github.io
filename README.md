@@ -1,9 +1,10 @@
-
+<link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css" />
+<script defer src="https://pyscript.net/latest/pyscript.js"></script>
 
 ## Hello World! 🎉 I'm Noob 👋.
 
 # I'm Building an equal world for everyone! 🌍 🤝 ☮️
-
+<py-script> print('It is Possible!') </py-script>
 ---
 To know more: just reach out to me:
 
