@@ -1,29 +1,61 @@
 <html>
-<head>
-<title>Noob ML Dude </title>
-<link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css" />
-<script defer src="https://pyscript.net/latest/pyscript.js"></script>
 
-<script type="module"
-src="https://gradio.s3-us-west-2.amazonaws.com/3.10.1/gradio.js">
-</script>
+<head>
+  <title>Noob ML Dude </title>
+  <link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css" />
+  <script defer src="https://pyscript.net/latest/pyscript.js"></script>
+
+  <script type="module" src="https://gradio.s3-us-west-2.amazonaws.com/3.10.1/gradio.js">
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/signature_pad@4.0.0/dist/signature_pad.umd.min.js"></script>
 
 </head>
 
 <body>
-<h1>Hello World! 🎉</h1>
-<h4>I'm Building an equal world for everyone! </h4>
+  <h1>Hello World! 🎉</h1>
+  <h4>I'm Building an equal world for everyone! </h4>
 
-<p>To know more: just reach out to me:
-<ul>
-<li>🐦 Twitter : <a href="https://twitter.com/noobmldude">NoobMLDude</a></li>
-<li>🐘 Mastodon: <a href="https://noobmldude@mstdn.social/@NoobMLDude">NoobMLDude</a></li>
-<li>Gmail: noobmldude</li>
-</ul>
-</p>
-<py-script> print('This is printed using PyScript!') </py-script>
+  <p>To know more: just reach out to me:
+  <ul>
+    <li>🐦 Twitter : <a href="https://twitter.com/noobmldude">NoobMLDude</a></li>
+    <li>🐘 Mastodon: <a href="https://noobmldude@mstdn.social/@NoobMLDude">NoobMLDude</a></li>
+    <li>Gmail: noobmldude</li>
+  </ul>
+  </p>
+  <py-script> print('This is printed using PyScript!') </py-script>
 
-<h3> Gradio Space </h3>
-<gradio-app space="agnair00/MNIST_with_simple_net"></gradio-app>
+  <h3> Gradio Space </h3>
+  <gradio-app space="agnair00/MNIST_with_simple_net"></gradio-app>
+
+
+  <h3>Signature App </h3>
+  <div id="signature-pad" class="signature-pad">
+    <div class="signature-pad--body">
+      <canvas></canvas>
+    </div>
+    <div class="signature-pad--footer">
+      <div class="description">Sign above</div>
+
+      <div class="signature-pad--actions">
+        <div>
+          <button type="button" class="button clear" data-action="clear">Clear</button>
+          <button type="button" class="button" data-action="change-color">Change color</button>
+          <button type="button" class="button" data-action="undo">Undo</button>
+
+        </div>
+        <div>
+          <button type="button" class="button save" data-action="save-png">Save as PNG</button>
+          <button type="button" class="button save" data-action="save-jpg">Save as JPG</button>
+          <button type="button" class="button save" data-action="save-svg">Save as SVG</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/signature_pad.js"></script>
+  <script src="js/app.js"></script>
+
 </body>
+
 </html>
