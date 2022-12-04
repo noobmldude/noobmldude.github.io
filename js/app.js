@@ -9,7 +9,7 @@ var canvas = wrapper.querySelector("canvas");
 var signaturePad = new SignaturePad(canvas, {
   // It's Necessary to use an opaque color when saving image as JPEG;
   // this option can be omitted if only saving as PNG or SVG
-  backgroundColor: 'rgb(255, 255, 255)'
+  backgroundColor: "rgb(255, 255, 255)",
 });
 
 // Adjust canvas coordinate space taking into account pixel ratio,
@@ -19,7 +19,7 @@ function resizeCanvas() {
   // When zoomed out to less than 100%, for some very strange reason,
   // some browsers report devicePixelRatio as less than 1
   // and only part of the canvas is cleared then.
-  var ratio =  Math.max(window.devicePixelRatio || 1, 1);
+  var ratio = Math.max(window.devicePixelRatio || 1, 1);
 
   // This part causes the canvas to be cleared
   canvas.width = canvas.offsetWidth * ratio;
@@ -58,7 +58,7 @@ function download(dataURL, filename) {
 // that it can be done using result of SignaturePad#toDataURL.
 function dataURLToBlob(dataURL) {
   // Code taken from https://github.com/ebidel/filer.js
-  var parts = dataURL.split(';base64,');
+  var parts = dataURL.split(";base64,");
   var contentType = parts[0].split(":")[1];
   var raw = window.atob(parts[1]);
   var rawLength = raw.length;
@@ -71,11 +71,11 @@ function dataURLToBlob(dataURL) {
   return new Blob([uInt8Array], { type: contentType });
 }
 
-clearButton.addEventListener("click", function (event) {
+clearButton.addEventListener("click", function(event) {
   signaturePad.clear();
 });
 
-undoButton.addEventListener("click", function (event) {
+undoButton.addEventListener("click", function(event) {
   var data = signaturePad.toData();
 
   if (data) {
@@ -84,25 +84,39 @@ undoButton.addEventListener("click", function (event) {
   }
 });
 
-changeColorButton.addEventListener("click", function (event) {
+changeColorButton.addEventListener("click", function(event) {
   var r = Math.round(Math.random() * 255);
   var g = Math.round(Math.random() * 255);
   var b = Math.round(Math.random() * 255);
-  var color = "rgb(" + r + "," + g + "," + b +")";
+  var color = "rgb(" + r + "," + g + "," + b + ")";
 
   signaturePad.penColor = color;
 });
 
-savePNGButton.addEventListener("click", function (event) {
+savePNGButton.addEventListener("click", function(event) {
   if (signaturePad.isEmpty()) {
     alert("Please provide a signature first.");
   } else {
     var dataURL = signaturePad.toDataURL();
-    download(dataURL, "signature.png");
+    // download(dataURL, "signature.png");
+    // call API
+    const savePNGToDrive = async () => {
+      const response = await fetch("https://handy-backend.deta.dev/upload/", {
+        method: "POST",
+        body: JSON.stringify({ image: dataURL }),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+
+      const myJson = await response.json();
+      console.lot(myJson);
+    };
+    savePNGToDrive();
   }
 });
 
-saveJPGButton.addEventListener("click", function (event) {
+saveJPGButton.addEventListener("click", function(event) {
   if (signaturePad.isEmpty()) {
     alert("Please provide a signature first.");
   } else {
@@ -111,11 +125,11 @@ saveJPGButton.addEventListener("click", function (event) {
   }
 });
 
-saveSVGButton.addEventListener("click", function (event) {
+saveSVGButton.addEventListener("click", function(event) {
   if (signaturePad.isEmpty()) {
     alert("Please provide a signature first.");
   } else {
-    var dataURL = signaturePad.toDataURL('image/svg+xml');
+    var dataURL = signaturePad.toDataURL("image/svg+xml");
     download(dataURL, "signature.svg");
   }
 });
